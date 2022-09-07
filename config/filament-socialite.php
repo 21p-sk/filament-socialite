@@ -8,7 +8,12 @@ return [
     'domain_allowlist' => [],
 
     // Allow registration through socials
-    'registration' => false,
+    // user: A User and a SocialiteUser will be created.
+    // socialite_user: Only a SocialiteUser will be created.
+    'registration' => [
+        'user' => false,
+        'socialite_user' => false,
+    ],
 
     // Specify the providers that should be visible on the login.
     // These should match the socialite providers you have setup in your services.php config.

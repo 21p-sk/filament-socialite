@@ -20,7 +20,7 @@ class RegistrationNotEnabled
     public function __construct(
         public string $provider,
         public SocialiteUserContract $oauthUser,
-        public SocialiteUser $socialiteUser,
+        public ?SocialiteUser $socialiteUser = null,
     ) {
     }
 }

@@ -133,8 +133,13 @@ class FilamentSocialite
         );
     }
 
-    public function isRegistrationEnabled(): bool
+    public function isUserRegistrationEnabled(): bool
     {
-        return $this->getConfig()['registration'] == true;
+        return $this->getConfig()['registration']['user'] == true;
+    }
+
+    public function isSocialiteUserRegistrationEnabled(): bool
+    {
+        return $this->getConfig()['registration']['socialite_user'] == true;
     }
 }
