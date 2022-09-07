@@ -19,6 +19,8 @@ class FilamentSocialite
 
     protected ?Closure $createUserCallback = null;
 
+    protected ?array $domainAllowList = null;
+
     public function __construct(
         protected Repository $config,
         protected Factory $auth,
@@ -56,7 +58,14 @@ class FilamentSocialite
 
     public function getDomainAllowList(): array
     {
-        return $this->getConfig()['domain_allowlist'] ?? [];
+        return [...$this->domainAllowList ?? [], ...$this->getConfig()['domain_allowlist'] ?? []];
+    }
+
+    public function setDomainAllowList(?array $domainAllowList = null): static
+    {
+        $this->domainAllowList = $domainAllowList;
+
+        return $this;
     }
 
     public function getLoginRedirectRoute(): string
