@@ -172,7 +172,7 @@ class SocialiteLoginController extends Controller
 
         // See if user registration is allowed
         if (! $this->socialite->isUserRegistrationEnabled()) {
-            Events\RegistrationNotEnabled::dispatch($provider, $oauthUser, $socialiteUser);
+            Events\RegistrationNotEnabled::dispatch($provider, $oauthUser);
 
             return $this->redirectToLogin('auth.registration-not-enabled');
         }
